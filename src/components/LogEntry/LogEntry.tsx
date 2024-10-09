@@ -1,5 +1,6 @@
 import React, { useRef } from "react";
 import { LogType } from "../../hooks/useFetchLogs";
+import "./LogEntry.css"
 
 export interface LogEntryProps {
   log: LogType;

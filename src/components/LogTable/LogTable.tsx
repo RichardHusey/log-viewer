@@ -4,7 +4,8 @@ import LogTableRow from "./LogTableRow";
 import LogTableTitleRow from "./LogTableTitleRow";
 import { LogContext, LogContextType } from "../../context/LogContext";
 import { useResizeObserver } from "../../hooks/useResizeObserver";
-import { useListHeight } from "../../hooks/useListHeight"; 
+import { useListHeight } from "../../hooks/useListHeight";
+import "./LogTable.css";
 
 const LogTable: React.FC = () => {
   const { logs } = useContext(LogContext) as LogContextType;
@@ -47,13 +48,13 @@ const LogTable: React.FC = () => {
   return (
     <div className="log-table-container" ref={containerRef}>
       <div className="log-table" role="table" aria-label="Log Entries Table">
-        <LogTableTitleRow /> 
+        <LogTableTitleRow />
         <div role="rowgroup">
           <List
             ref={listRef}
             height={listHeight}
             itemCount={logs.length}
-            itemSize={getItemSize} 
+            itemSize={getItemSize}
             width={listWidth} // Use the width returned by useResizeObserver
           >
             {({ index, style }) => (
