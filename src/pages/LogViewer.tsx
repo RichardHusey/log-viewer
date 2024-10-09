@@ -11,7 +11,7 @@ const LogViewer: React.FC = () => {
     <div className="log-viewer">
       <Header />
       {error && <p className="error-message">{error}</p>}
-      <Timeline />
+      <Timeline color="#2884d8" />
       <LogTable />
     </div>
   );
