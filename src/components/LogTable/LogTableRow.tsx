@@ -1,9 +1,10 @@
 import React, { useEffect, useRef } from "react";
 import LogEntry from "../LogEntry/LogEntry";
+import { LogType } from "../../hooks/useFetchLogs";
 
 interface LogTableRowProps {
   index: number;
-  log: any; 
+  log: LogType; 
   style: React.CSSProperties;
   isExpanded: boolean;
   onToggle: () => void;

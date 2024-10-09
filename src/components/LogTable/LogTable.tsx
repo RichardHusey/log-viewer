@@ -2,13 +2,13 @@ import React, { useContext, useState, useRef } from "react";
 import { VariableSizeList as List } from "react-window";
 import LogTableRow from "./LogTableRow";
 import LogTableTitleRow from "./LogTableTitleRow";
-import { LogContext, LogContextType } from "../../context/LogContext";
+import { LogContext } from "../../context/LogContext";
 import { useResizeObserver } from "../../hooks/useResizeObserver";
 import { useListHeight } from "../../hooks/useListHeight";
 import "./LogTable.css";
 
 const LogTable: React.FC = () => {
-  const { logs } = useContext(LogContext) as LogContextType;
+  const { logs } = useContext(LogContext);
   const [expandedRows, setExpandedRows] = useState<Record<number, boolean>>({});
   const listRef = useRef<List>(null);
   const rowHeights = useRef<{ [index: number]: number }>({});

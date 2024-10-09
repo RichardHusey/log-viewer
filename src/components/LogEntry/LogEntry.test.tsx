@@ -1,6 +1,7 @@
 import { render, screen, fireEvent } from "@testing-library/react";
 import LogEntry from "./LogEntry";
 import { useState } from "react";
+import { LogType } from "../../hooks/useFetchLogs";
 
 const mockLog = {
   _time: 1724323612592, // Mock timestamp
@@ -21,7 +22,7 @@ const mockLog = {
 };
 
 // Helper component to handle expanding/collapsing logic for testing
-const LogEntryWrapper = ({ log }: { log: any }) => {
+const LogEntryWrapper = ({ log }: { log: LogType }) => {
   const [isExpanded, setIsExpanded] = useState(false);
 
   const handleToggle = () => {
