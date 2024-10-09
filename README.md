@@ -1,46 +1,89 @@
-# Getting Started with Create React App
+# Cribl Log Viewer
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+#### Richard Nguyen(Husey)
 
-## Available Scripts
+![Screenshot 1](./screen1.png)
 
-In the project directory, you can run:
 
-### `npm start`
+![Screenshot 2](./screen2.png)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+A React-based log viewer that streams and displays log entries in real-time as they are fetched from the server. This project was developed as part of a Cribl interview process, focusing on real-time log handling and expandable log entries.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## Key Features
 
-### `npm test`
+- **Real-time Log Streaming**: Logs are streamed directly from a remote URL and displayed immediately as they arrive, without waiting for the entire file to download.
+- **Expandable Log Entries**: Users can expand any log entry to view its full details in multiline JSON format.
+- **Timeline Visualization**: Displays the distribution of log events over time using a custom timeline chart.
+- **Optimized for Performance**: Efficiently handles large log files by rendering events as they are streamed, leveraging React Window for virtualized lists.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Project Structure
 
-### `npm run build`
+- **`src/components/`**: Contains key components like:
+  - `Header`: Displays the application header.
+  - `LogEntry`: Manages individual log entries with expandable content.
+  - `LogTable`: Renders log entries in a virtualized table.
+  - `Timeline`: A timeline component showing log event distribution.
+- **`src/hooks/`**: Contains custom hooks for managing log fetching and UI resizing.
+- **`src/context/`**: Provides global state management for log data.
+- **`src/utils/`**: Utility functions for tasks like date formatting.
+- **`src/pages/`**: Main application entry point.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Technology Stack
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- **React**: Main framework for building the UI.
+- **TypeScript**: Ensures type safety and improved code quality.
+- **React Window**: Efficient rendering of large lists for improved performance.
+- **Context API**: Used for global state management, providing log data to the entire application.
+- **Streaming Data Fetch**: Implemented using native browser APIs to fetch logs as they are streamed from the server, improving the time-to-first-byte (TTFB) and overall user experience.
+- **Caching**: Optimizes performance by caching log data, reducing redundant data fetches and improving application responsiveness.
+- **React Testing Library**: For unit testing key components and verifying functionality.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Demo
+- **https://codesandbox.io/p/github/RichardHusey/log-viewer/draft/reverent-feynman?workspaceId=15236f99-f0f4-4211-9a7c-8fe4b8c53119**
+## Installation and Setup
 
-### `npm run eject`
+To get started with the project, follow these steps:
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+1. **Clone the repository**:
+   ```bash
+   git clone git@github.com:RichardHusey/log-viewer.git
+2. **Install dependencies**:
+   ```bash
+   npm install
+3. **Run the development server**:
+   ```bash
+   npm start
+4. **Open the app: Visit http://localhost:3000**
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Usage
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+- **Logs are fetched from the provided URL:**: https://s3.amazonaws.com/io.cribl.c021.takehome/cribl.log
+- **The log entries are displayed in a table with two columns:**: 
+  - Timestamp: ISO 8601 formatted time.
+  - Log Event: A JSON object represented in a single line.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+- **Click on any row to expand and view the full log event in a multiline format.**
+- **Use the timeline to view log event distribution by the hour.**
 
-## Learn More
+## Demo
+- **https://codesandbox.io/p/github/RichardHusey/log-viewer/draft/reverent-feynman?workspaceId=15236f99-f0f4-4211-9a7c-8fe4b8c53119**
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## Running Test
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+To get started with the project, follow these steps:
+
+1. **Clone the repository**:
+   ```bash
+   npm test
+2. **Test Coverage**:
+
+- **Header Component**: Verifies proper rendering of the header elements.
+- **LogEntry Component**: Tests the expand/collapse functionality for log entries, ensuring accessibility and focus management.
+- **LogTable Component**: Ensures efficient rendering of log entries and dynamic row sizing for large datasets.
+- **Timeline Component**: Validates the correct visualization of log events distribution over time and interaction with navigation controls.
+
+## Future Enhancements
+
+- **Improved Test Coverage**: Expand test cases to include edge cases, more scenarios for log streaming, and performance-related testing.
+- **Error Handling**: Implement advanced error handling and recovery mechanisms for network issues or corrupted data streams.
+- **Performance Optimization**: Further optimize the timeline component and rendering logic to handle larger datasets more efficiently, including lazy loading and memoization strategies.
