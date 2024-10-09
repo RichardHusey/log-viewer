@@ -65,12 +65,9 @@ To get started with the project, follow these steps:
 - **Click on any row to expand and view the full log event in a multiline format.**
 - **Use the timeline to view log event distribution by the hour.**
 
-## Demo
-- **https://codesandbox.io/p/github/RichardHusey/log-viewer/draft/reverent-feynman?workspaceId=15236f99-f0f4-4211-9a7c-8fe4b8c53119**
-
 ## Running Test
 
-To get started with the project, follow these steps:
+To get started testing, follow these steps:
 
 1. **Clone the repository**:
    ```bash
