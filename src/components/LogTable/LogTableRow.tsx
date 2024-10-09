@@ -4,7 +4,7 @@ import { LogType } from "../../hooks/useFetchLogs";
 
 interface LogTableRowProps {
   index: number;
-  log: LogType; 
+  log: LogType;
   style: React.CSSProperties;
   isExpanded: boolean;
   onToggle: () => void;
@@ -17,24 +17,25 @@ const LogTableRow: React.FC<LogTableRowProps> = ({
   style,
   isExpanded,
   onToggle,
-  setRowHeight
+  setRowHeight,
 }) => {
   const rowRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
+    const currentRowRef = rowRef.current; // Store the current value of rowRef.current
     const observer = new ResizeObserver((entries) => {
       for (let entry of entries) {
         setRowHeight(index, entry.contentRect.height);
       }
     });
 
-    if (rowRef.current) {
-      observer.observe(rowRef.current);
+    if (currentRowRef) {
+      observer.observe(currentRowRef);
     }
 
     return () => {
-      if (rowRef.current) {
-        observer.unobserve(rowRef.current);
+      if (currentRowRef) {
+        observer.unobserve(currentRowRef); // Use the stored ref value in the cleanup
       }
     };
   }, [index, setRowHeight]);
