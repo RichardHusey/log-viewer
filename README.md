@@ -39,7 +39,7 @@ A React-based log viewer that streams and displays log entries in real-time as t
 - **React Testing Library**: For unit testing key components and verifying functionality.
 
 ## Demo
-- **https://codesandbox.io/p/github/RichardHusey/log-viewer/draft/reverent-feynman?workspaceId=15236f99-f0f4-4211-9a7c-8fe4b8c53119**
+- **https://codesandbox.io/p/github/RichardHusey/log-viewer/main**
 ## Installation and Setup
 
 To get started with the project, follow these steps:
